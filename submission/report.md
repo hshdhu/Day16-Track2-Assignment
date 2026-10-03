@@ -93,15 +93,15 @@ The CP3 benchmark successfully completed on the AWS x86_64 VM. The benchmark pro
 
 The CPU and memory statistics were collected after the CP3 benchmark completed. Therefore, they represent the post-benchmark system state rather than peak resource utilization during training.
 
-![CPU and process status](screenshots/01-top.png)
+![CPU and process status](screenshots/01-top.jpg)
 
-![Memory status](screenshots/02-free-memory.png)
+![Memory status](screenshots/02-free-memory.jpg)
 
 ### Network
 
 Network statistics were collected using `ip -s link`. These are cumulative RX/TX counters and do not represent instantaneous network throughput.
 
-![Network statistics](screenshots/03-network.png)
+![Network statistics](screenshots/03-network.jpg)
 
 ### AWS Billing (2:04 AM)
 
@@ -111,4 +111,17 @@ At the time of observation, AWS showed that the free-plan credits cover eligible
 
 Billing data had not yet been updated in Cost Explorer/Billing at the time of observation. Therefore, no recorded AWS cost is claimed from this screenshot.
 
-![AWS Billing status](screenshots/04-aws-billing.png)
+![AWS Billing status](screenshots/04-aws-billing.jpg)
+
+
+## CP5 — Submission and Cleanup
+
+The benchmark artifacts were downloaded from the AWS VM before the infrastructure was destroyed. The final submission package includes the benchmark code, benchmark results, CP4 resource and billing observations, screenshots, and the Terraform infrastructure source.
+
+After the submission artifacts were verified, the AWS lab infrastructure was cleaned up using Terraform.
+
+Cleanup verification:
+
+* Terraform destroyed 27 AWS resources successfully.
+* `terraform state list` returned no resources.
+* EC2 instance verification returned no remaining lab instances.
