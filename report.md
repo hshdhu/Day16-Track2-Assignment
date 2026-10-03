@@ -85,3 +85,30 @@ The inference measurements include model prediction only and exclude VM creation
 ## 7. Conclusion
 
 The CP3 benchmark successfully completed on the AWS x86_64 VM. The benchmark produced valid evaluation metrics and inference performance measurements, which were saved in `benchmark_result.json`.
+
+
+## CP4 — Resource and Cost Observation
+
+### CPU and Memory
+
+The CPU and memory statistics were collected after the CP3 benchmark completed. Therefore, they represent the post-benchmark system state rather than peak resource utilization during training.
+
+![CPU and process status](cp4-screenshots/01-top.png)
+
+![Memory status](cp4-screenshots/02-free-memory.png)
+
+### Network
+
+Network statistics were collected using `ip -s link`. These are cumulative RX/TX counters and do not represent instantaneous network throughput.
+
+![Network statistics](cp4-screenshots/03-network.png)
+
+### AWS Billing (2:04 AM)
+
+AWS Billing and Cost Management was checked for the lab account.
+
+At the time of observation, AWS showed that the free-plan credits cover eligible costs, while the month-to-date cost, forecasted cost, and cost breakdown were unavailable.
+
+Billing data had not yet been updated in Cost Explorer/Billing at the time of observation. Therefore, no recorded AWS cost is claimed from this screenshot.
+
+![AWS Billing status](cp4-screenshots/04-aws-billing.png)
